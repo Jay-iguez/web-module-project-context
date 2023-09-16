@@ -5,7 +5,8 @@ import { ProductContext } from '../context/Product_Context';
 import Product from './Product';
 
 const Products = props => {
-	const products = useContext(ProductContext).products
+	const context = useContext(ProductContext)
+	const { products, addItem } = context
 	
 	return (
 		<div className="products-container">
@@ -13,7 +14,7 @@ const Products = props => {
 				<Product
 					key={product.id}
 					product={product}
-					addItem={props.addItem}
+					addItem={addItem}
 				/>
 			))}
 		</div>
